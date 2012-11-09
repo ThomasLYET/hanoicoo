@@ -1,12 +1,11 @@
 package main;
 
-public class ErreurPile extends Exception {
+public class ErreurPile extends Exception{
+	public ErreurPile() {
+		super();
+	}
 
-    public ErreurPile() {
-    	super();
-    }
-
-    public ErreurPile(String msg) {
-    	super(msg);
-    }
+	public ErreurPile(String msg) {
+		super(msg);
+	}
 }

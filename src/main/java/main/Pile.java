@@ -2,63 +2,55 @@ package main;
 
 import java.util.ArrayList;
 
+
+
 public class Pile {
-	
 	private int capacite;
-	// L'index 0 correspond au sommet de la pile
-	private ArrayList listDisque;
+	private ArrayList listelem;
 
-    public Pile(int capa) {
-    	this.capacite = capa; 
-    	this.listDisque = new ArrayList();
-    }
-    
-    // Une pile ne prend pas en compte la relation d'ordre des objets !
-    public void empiler(Object v) throws ErreurPile {
-    	if (this.listDisque.size() == this.capacite) {
-    		throw new ErreurPile("La Pile est pleine !");
-    	}
-    	else {
-    		// On met l'objet sur le sommet de la pile, et non à sa queue
-    		this.listDisque.add(0, v);
-    	}
-    }
-    
-    // La fonction depiler ne depile que le premier element de la pile
-    public void depiler() throws ErreurPile {
-    	if (this.estVide()) {
-			throw new ErreurPile("La Pile est vide !");
+	public Pile(int capa) {
+		capacite=capa;
+		listelem=new ArrayList();
+	}
+
+	public void empiler(Object v) throws ErreurPile {
+		try{
+			if(listelem.size()<this.capacite) 
+				listelem.add(0,v);
+			else throw new ErreurPile("Pile Pleine!!!");
+		}catch(NullPointerException e){
+			e.printStackTrace();
 		}
-    	this.listDisque.remove(0);
-    }
+	}
 
-    public Object sommet() throws ErreurPile {
-    	if ( this.estVide() ) {
-    		throw new ErreurPile("La Pile est vide !");
-    	}
-    	return this.listDisque.get(0);
-    }
+	public void depiler () throws ErreurPile {
+		if(!this.estVide()) listelem.remove(0);
+		else throw new ErreurPile("Pile vide!!!");
+	}
 
-    public boolean estVide() {
-    	if ( this.listDisque.size() == 0 ) { return true;}
-    	return false;
-    }
+	public Object sommet() throws ErreurPile {
+		if(!this.estVide()) return listelem.get(0);
+		else return new ErreurPile("Pile Vide!");
+	}
 
-    public int hauteur() {
-    	return this.listDisque.size();
-    }
+	public boolean estVide() {
+		if(listelem.size()==0) return true;
+		return false;
+	}
 
-    public int capacite () {
-    	return this.capacite;
-    }
+	public int hauteur () {
+		return listelem.size();
+	}
 
-    /* Affiche les elements de la pile dans l'ordre en commencant par le
-	 * plus petit element
-	 */
-    // Ici, n'affiche que dans l'ordre où ont été mis les éléments dans la liste
-    public void affiche () { 
-    	for (int i = 0; i < this.listDisque.size(); i++) {
-    		System.out.println( this.listDisque.get(i).toString());
-    	}
-    }
+	public int capacite () {
+		return capacite;
+	}
+
+	public void affiche () { 
+		/* Affiche les elements de la pile dans l'ordre en commencant par le
+		 * plus petit element
+		 */
+		for(int i=0;i<listelem.size();i++)
+			System.out.println(listelem.get(i).toString());
+	}
 }

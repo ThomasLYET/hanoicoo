@@ -1,11 +1,11 @@
 package main;
 
-public class ErreurTour extends Exception {
-    public ErreurTour() {
-    	super();
-    }
+public class ErreurTour extends ErreurPile{
+	public ErreurTour() {
+		super();
+	}
 
-    public ErreurTour(String msg) {
-    	super(msg);
-    }
+	public ErreurTour(String msg) {
+		super(msg);
+	}
 }
