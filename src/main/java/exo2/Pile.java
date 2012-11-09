@@ -1,8 +1,6 @@
 package exo2;
 import java.util.ArrayList;
 
-import main.ErreurPile;
-
 public class Pile {
 
 	private int capacite;

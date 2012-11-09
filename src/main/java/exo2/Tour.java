@@ -1,7 +1,5 @@
 package exo2;
 
-import main.ErreurPile;
-
 public class Tour extends Pile {
 
 	public Tour(int capa) {

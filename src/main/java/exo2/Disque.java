@@ -24,4 +24,9 @@ public class Disque implements Empilable {
 	 		return 1;
 	 	} catch ( ClassCastException e) { throw e; }
 	 }
+
+	@Override
+	public void setVal(int v) {
+		this.val = v;
+	}
 }

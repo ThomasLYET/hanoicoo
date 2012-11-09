@@ -1,3 +1,5 @@
+package exo2;
+
 public class MesEntiers2 implements Empilable {
 	Integer val;
 
@@ -16,6 +18,11 @@ public class MesEntiers2 implements Empilable {
 
 	public String toString() {
 		return "MesEntiers[" + val.intValue() +"]";
+	}
+
+	@Override
+	public void setVal(int v) {
+		this.val = v;
 	}
 }
 
