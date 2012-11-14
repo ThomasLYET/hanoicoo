@@ -13,7 +13,7 @@ public class Tour extends Pile {
 
 	public void empiler(Object v) throws ErreurPile {
 		try {
-			Disque sommet = (Disque) this.sommet();
+			Empilable sommet = (Empilable) this.sommet();
 			if (sommet.compareTo(v) == 1) { super.empiler(v); }
 			else {
 				throw new ErreurTour("Le Disque est plus gros que le sommet !");

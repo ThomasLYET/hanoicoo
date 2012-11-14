@@ -16,7 +16,7 @@ public class Tour extends Pile{
 		try{		
 			if(this.estVide() || (((Disque)this.sommet()).compareTo((Disque)v)>0)) super.empiler((Disque)v);
 			else throw new ErreurTour("le sommet est plus petit que le disque a empiler!!");
-		}catch(ClassCastException e){
+		} catch(ClassCastException e){
 			System.out.println("Ops! l'objet a empiler n'est pas un disque, la tour rejete");//le cas ou la tour est vide et v#disque
 		}
 
